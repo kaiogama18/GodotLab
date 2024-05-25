@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn5wrykv07vd4"]
+
+[ext_resource type="PackedScene" uid="uid://ccvkv2fwr1hl1" path="res://objects/base_player.tscn" id="1_o6fok"]
+
+[node name="PlayerRigidBody2D" instance=ExtResource("1_o6fok")]
+
+[node name="PlayerRect" parent="CollisionShape2D" index="0"]
+color = Color(0, 0.292362, 0.218931, 1)

@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckdmvmxguefyq"]
+
+[ext_resource type="PackedScene" uid="uid://ccvkv2fwr1hl1" path="res://objects/base_player.tscn" id="1_gfhe4"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ha8vg"]
+[ext_resource type="PackedScene" uid="uid://dn5wrykv07vd4" path="res://objects/player.tscn" id="2_j2kwl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymmwe"]
+size = Vector2(1148, 44)
+
+[node name="World2D" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_ha8vg")
+object_templates = Array[PackedScene]([ExtResource("1_gfhe4"), ExtResource("2_j2kwl")])
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1154.0
+offset_bottom = 650.0
+color = Color(0.230655, 0.324727, 0.385442, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(576, 626)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_ymmwe")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -575.5
+offset_top = -22.0
+offset_right = 575.5
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
