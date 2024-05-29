@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d13va70xy6h55"]
+[gd_scene load_steps=7 format=3 uid="uid://d13va70xy6h55"]
 
 [ext_resource type="Texture2D" uid="uid://bqnwpowt3qxex" path="res://addons/Tiny Swords/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="1_4nhlw"]
 [ext_resource type="PackedScene" uid="uid://cdiek4lw4fq0w" path="res://player/player.tscn" id="2_otoxm"]
 [ext_resource type="PackedScene" uid="uid://cuqt3bh1jp0ej" path="res://enemies/pawn.tscn" id="3_m04lf"]
+[ext_resource type="PackedScene" uid="uid://m84dkx0v4g1p" path="res://enemies/goblin.tscn" id="4_hfbnj"]
+[ext_resource type="PackedScene" uid="uid://cl8boeemy43lb" path="res://enemies/sheep.tscn" id="5_50yct"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_inxki"]
 line_spacing = 129.895
@@ -49,3 +51,9 @@ position = Vector2(63, 638)
 
 [node name="Pawn" parent="." instance=ExtResource("3_m04lf")]
 position = Vector2(198, 536)
+
+[node name="Goblin" parent="." instance=ExtResource("4_hfbnj")]
+position = Vector2(1036, 134)
+
+[node name="Sheep" parent="." instance=ExtResource("5_50yct")]
+position = Vector2(172, 164)

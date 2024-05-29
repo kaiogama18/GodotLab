@@ -1,0 +1,130 @@
+[gd_scene load_steps=20 format=3 uid="uid://cl8boeemy43lb"]
+
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_p23hp"]
+[ext_resource type="PackedScene" uid="uid://d3natcoylxqj6" path="res://misc/skull.tscn" id="2_1rqv5"]
+[ext_resource type="Texture2D" uid="uid://bb3o8ow4ix8gr" path="res://addons/Tiny Swords/Factions/Knights/Troops/Pawn/Red/Pawn_Red.png" id="3_5ojwt"]
+[ext_resource type="Script" path="res://enemies/behaviors/follow_player.gd" id="4_57xgs"]
+[ext_resource type="Texture2D" uid="uid://b4fmosju5yy07" path="res://addons/Tiny Swords/Resources/Sheep/HappySheep_Bouncing.png" id="4_ui8hw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5th1j"]
+atlas = ExtResource("3_5ojwt")
+region = Rect2(0, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5wne"]
+atlas = ExtResource("3_5ojwt")
+region = Rect2(192, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldard"]
+atlas = ExtResource("3_5ojwt")
+region = Rect2(384, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j4ar"]
+atlas = ExtResource("3_5ojwt")
+region = Rect2(576, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87dml"]
+atlas = ExtResource("3_5ojwt")
+region = Rect2(768, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1krh"]
+atlas = ExtResource("3_5ojwt")
+region = Rect2(960, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pguo"]
+atlas = ExtResource("4_ui8hw")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fk3c"]
+atlas = ExtResource("4_ui8hw")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm24b"]
+atlas = ExtResource("4_ui8hw")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lprqo"]
+atlas = ExtResource("4_ui8hw")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tqk1"]
+atlas = ExtResource("4_ui8hw")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvntu"]
+atlas = ExtResource("4_ui8hw")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ujhbj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5th1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5wne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldard")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3j4ar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87dml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1krh")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pguo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fk3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm24b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lprqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tqk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvntu")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5lxfw"]
+radius = 17.0
+height = 36.0
+
+[node name="Sheep" type="CharacterBody2D" groups=["enemies"]]
+motion_mode = 1
+script = ExtResource("1_p23hp")
+health = 1
+death_prefab = ExtResource("2_1rqv5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_ujhbj")
+animation = &"run"
+autoplay = "run"
+frame_progress = 0.760563
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -20)
+shape = SubResource("CapsuleShape2D_5lxfw")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="FollowPlayer" type="Node" parent="."]
+script = ExtResource("4_57xgs")
+speed = 2.0

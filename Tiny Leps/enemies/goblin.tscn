@@ -1,56 +1,57 @@
-[gd_scene load_steps=19 format=3 uid="uid://cuqt3bh1jp0ej"]
+[gd_scene load_steps=20 format=3 uid="uid://m84dkx0v4g1p"]
 
-[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_1ss1o"]
-[ext_resource type="Script" path="res://enemies/behaviors/follow_player.gd" id="1_fjhi7"]
-[ext_resource type="Texture2D" uid="uid://bb3o8ow4ix8gr" path="res://addons/Tiny Swords/Factions/Knights/Troops/Pawn/Red/Pawn_Red.png" id="1_gix17"]
-[ext_resource type="PackedScene" uid="uid://d3natcoylxqj6" path="res://misc/skull.tscn" id="2_ltffk"]
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_xth5q"]
+[ext_resource type="PackedScene" uid="uid://d3natcoylxqj6" path="res://misc/skull.tscn" id="2_j5rnn"]
+[ext_resource type="Texture2D" uid="uid://bb3o8ow4ix8gr" path="res://addons/Tiny Swords/Factions/Knights/Troops/Pawn/Red/Pawn_Red.png" id="3_5t7to"]
+[ext_resource type="Texture2D" uid="uid://6f3icuxvxljl" path="res://addons/Tiny Swords/Factions/Goblins/Troops/Torch/Red/Torch_Red.png" id="4_ivm3s"]
+[ext_resource type="Script" path="res://enemies/behaviors/follow_player.gd" id="4_lyji1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5th1j"]
-atlas = ExtResource("1_gix17")
+atlas = ExtResource("3_5t7to")
 region = Rect2(0, 384, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f5wne"]
-atlas = ExtResource("1_gix17")
+atlas = ExtResource("3_5t7to")
 region = Rect2(192, 384, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ldard"]
-atlas = ExtResource("1_gix17")
+atlas = ExtResource("3_5t7to")
 region = Rect2(384, 384, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3j4ar"]
-atlas = ExtResource("1_gix17")
+atlas = ExtResource("3_5t7to")
 region = Rect2(576, 384, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_87dml"]
-atlas = ExtResource("1_gix17")
+atlas = ExtResource("3_5t7to")
 region = Rect2(768, 384, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j1krh"]
-atlas = ExtResource("1_gix17")
+atlas = ExtResource("3_5t7to")
 region = Rect2(960, 384, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_34gi8"]
-atlas = ExtResource("1_gix17")
+[sub_resource type="AtlasTexture" id="AtlasTexture_i17yn"]
+atlas = ExtResource("4_ivm3s")
 region = Rect2(0, 192, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ngwry"]
-atlas = ExtResource("1_gix17")
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mmcu"]
+atlas = ExtResource("4_ivm3s")
 region = Rect2(192, 192, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gwdrf"]
-atlas = ExtResource("1_gix17")
+[sub_resource type="AtlasTexture" id="AtlasTexture_b67ur"]
+atlas = ExtResource("4_ivm3s")
 region = Rect2(384, 192, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_prd2w"]
-atlas = ExtResource("1_gix17")
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbfei"]
+atlas = ExtResource("4_ivm3s")
 region = Rect2(576, 192, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s8oyj"]
-atlas = ExtResource("1_gix17")
+[sub_resource type="AtlasTexture" id="AtlasTexture_blkob"]
+atlas = ExtResource("4_ivm3s")
 region = Rect2(768, 192, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ewid3"]
-atlas = ExtResource("1_gix17")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ye2on"]
+atlas = ExtResource("4_ivm3s")
 region = Rect2(960, 192, 192, 192)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ujhbj"]
@@ -80,22 +81,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_34gi8")
+"texture": SubResource("AtlasTexture_i17yn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ngwry")
+"texture": SubResource("AtlasTexture_7mmcu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gwdrf")
+"texture": SubResource("AtlasTexture_b67ur")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_prd2w")
+"texture": SubResource("AtlasTexture_pbfei")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s8oyj")
+"texture": SubResource("AtlasTexture_blkob")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ewid3")
+"texture": SubResource("AtlasTexture_ye2on")
 }],
 "loop": true,
 "name": &"run",
@@ -103,27 +104,27 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5lxfw"]
-radius = 17.0
-height = 48.35
+radius = 21.0
+height = 52.0
 
-[node name="Pawn" type="CharacterBody2D" groups=["enemies"]]
+[node name="Goblin" type="CharacterBody2D" groups=["enemies"]]
 motion_mode = 1
-script = ExtResource("1_1ss1o")
-health = 3
-death_prefab = ExtResource("2_ltffk")
+script = ExtResource("1_xth5q")
+health = 5
+death_prefab = ExtResource("2_j5rnn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -26)
+position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_ujhbj")
 animation = &"run"
 autoplay = "run"
-frame = 2
-frame_progress = 0.600021
+frame_progress = 0.108109
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -24)
+position = Vector2(0, -27)
 shape = SubResource("CapsuleShape2D_5lxfw")
 debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="FollowPlayer" type="Node" parent="."]
-script = ExtResource("1_fjhi7")
+script = ExtResource("4_lyji1")
+speed = 0.5

@@ -262,7 +262,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xarkm"]
-radius = 100.0
+radius = 110.005
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 3
