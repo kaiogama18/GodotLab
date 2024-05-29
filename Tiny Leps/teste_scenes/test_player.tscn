@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://d13va70xy6h55"]
+
+[ext_resource type="Texture2D" uid="uid://bqnwpowt3qxex" path="res://addons/Tiny Swords/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="1_4nhlw"]
+[ext_resource type="PackedScene" uid="uid://cdiek4lw4fq0w" path="res://player/player.tscn" id="2_otoxm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_inxki"]
+line_spacing = 129.895
+font_size = 46
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="WarriorBlue" type="Sprite2D" parent="."]
+position = Vector2(621, -800)
+texture = ExtResource("1_4nhlw")
+
+[node name="Label" type="Label" parent="WarriorBlue"]
+offset_left = -515.0
+offset_top = -812.0
+offset_right = 517.0
+offset_bottom = -748.0
+text = "0             1              2              3             4               5
+"
+label_settings = SubResource("LabelSettings_inxki")
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="WarriorBlue"]
+offset_left = -605.0
+offset_top = -708.0
+offset_right = -565.0
+offset_bottom = 708.0
+text = "0 
+1 
+2 
+3 
+4 
+5
+6 
+7 
+
+"
+label_settings = SubResource("LabelSettings_inxki")
+autowrap_mode = 2
+
+[node name="Player" parent="." instance=ExtResource("2_otoxm")]
+position = Vector2(63, 638)
