@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
-@export var speed = 3
-@export_range(0, 1) var lerp_factor = 0.5
+@export var speed: float = 3
+@export var sword_damage: int = 1
+@export_range(0, 1) var lerp_factor: float = 0.5
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var sprete_2d: Sprite2D = $Sprite2D
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var sword_area = $SwordArea
 
 var input_vector: Vector2 = Vector2(0,0)
 var is_running: bool = false
@@ -13,13 +15,16 @@ var is_attacking: bool = false
 var attack_cooldown: float = 0.0
 
 func _process(delta):
+	GameManager.player_position = position
 	read_input()
 	update_attack_cooldown(delta)
 	if Input.is_action_just_pressed("attack"):
 		attack()
 		
 	play_run_idle_animation()
-	rotate_sprite()
+	
+	if not is_attacking:
+		rotate_sprite()
 
 func _physics_process(delta):	
 	# Modify the speed
@@ -70,9 +75,22 @@ func rotate_sprite():
 func attack():
 	if is_attacking:
 		return
-	# attack_side 1
-	# attack_side 2
-	# Play attack anim
+	# Play basic attack anim
 	is_attacking = true
 	animation_player.play("attack_side_1")
 	attack_cooldown = 0.6
+
+func deal_damage_to_enemies():
+	var bodies = sword_area.get_overlapping_bodies()
+	for body in bodies:
+		if body.is_in_group("enemies"):
+			var enemy: Enemy = body
+			var direction_to_enemy = (enemy.position - position).normalized()
+			var attack_direction: Vector2
+			if sprite.flip_h:
+				attack_direction = Vector2.LEFT
+			else:
+				attack_direction = Vector2.RIGHT
+			var dot_product = direction_to_enemy.dot(attack_direction)
+			if dot_product >= 0.3:	
+				enemy.damage(sword_damage)
