@@ -1,13 +1,21 @@
 class_name Player
 extends CharacterBody2D
 
+@export_category("Movement")
 @export var speed: float = 3
+
+@export_category("Sword")
 @export var sword_damage: int = 1
 @export_range(0, 1) var lerp_factor: float = 0.5
+
+@export_category("Ritual")
+@export var ritual_damage: int = 1
+@export var ritual_interval: float = 30
+@export var ritual_scene: PackedScene
+
+@export_category("Life")
 @export var health: int =  50
 @export var max_health: int =  100
-
-
 @export var death_prefab: PackedScene
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -21,6 +29,7 @@ var was_running: bool = false
 var is_attacking: bool = false
 var attack_cooldown: float = 0.0
 var hitbox_cooldown: float = 0.0
+var ritual_cooldown: float = 0.0
 
 func _process(delta):
 	GameManager.player_position = position
@@ -35,6 +44,7 @@ func _process(delta):
 		rotate_sprite()
 	
 	update_hitbox_detection(delta)
+	update_ritual(delta)
 
 func _physics_process(delta):	
 	# Modify the speed
@@ -52,6 +62,16 @@ func update_attack_cooldown(delta : float):
 			is_attacking = false
 			is_running = false
 			animation_player.play("idle")
+
+func update_ritual(delta: float):
+	ritual_cooldown -= delta
+	if ritual_cooldown > 0: return
+	
+	# reset cooldown
+	ritual_cooldown = ritual_interval
+	var ritual = ritual_scene.instantiate()
+	ritual.damage_amount = ritual_damage
+	add_child(ritual)
 
 # Get the input vector
 func read_input():
