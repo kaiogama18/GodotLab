@@ -118,6 +118,7 @@ label_settings = SubResource("LabelSettings_ydyrm")
 horizontal_alignment = 1
 
 [node name="TextureRect2" type="TextureRect" parent="ResourcesLabel"]
+layout_mode = 0
 offset_left = 158.0
 offset_top = 19.0
 offset_right = 214.0

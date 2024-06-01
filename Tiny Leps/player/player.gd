@@ -54,6 +54,7 @@ func _process(delta):
 
 func _ready():
 	GameManager.player = self
+	meat_collected.connect(func(value: int): GameManager.meat_counter += 1)
 
 func _physics_process(delta):	
 	# Modify the speed
@@ -165,6 +166,8 @@ func damage(amount: int):
 		die()
 
 func die():
+	GameManager.end_game()
+
 	if death_prefab:
 		var death_object = death_prefab.instantiate()
 		death_object.position = position

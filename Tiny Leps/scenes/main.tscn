@@ -1,6 +1,7 @@
-[gd_scene load_steps=50 format=3 uid="uid://301s6tppiox4"]
+[gd_scene load_steps=52 format=3 uid="uid://301s6tppiox4"]
 
 [ext_resource type="PackedScene" uid="uid://cdiek4lw4fq0w" path="res://player/player.tscn" id="1_48hul"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_63xl0"]
 [ext_resource type="PackedScene" uid="uid://b2d0awtyo0ju5" path="res://systems/mob_spawner.tscn" id="2_2r4p1"]
 [ext_resource type="PackedScene" uid="uid://cu0wuwrfnfmys" path="res://ui/game_ui.tscn" id="3_ppvtk"]
 [ext_resource type="PackedScene" uid="uid://b63e8tdij843v" path="res://misc/meat.tscn" id="4_dysis"]
@@ -26,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://o0t5r3wjoqdd" path="res://addons/Tiny Swords/Deco/08.png" id="22_n1wt7"]
 [ext_resource type="Texture2D" uid="uid://b3exrb3tuc2hb" path="res://addons/Tiny Swords/Deco/09.png" id="23_uc7ky"]
 [ext_resource type="PackedScene" uid="uid://bfa2l6pw7lumc" path="res://misc/tree.tscn" id="25_cnu38"]
+[ext_resource type="PackedScene" uid="uid://btple63l8onyv" path="res://ui/game_over_ui.tscn" id="27_s5cs5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hrl5n"]
 texture = ExtResource("5_c7l7u")
@@ -195,8 +197,11 @@ size = Vector2(4483, 390)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ml7mm"]
 size = Vector2(584, 1918)
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("game_ui")]
 y_sort_enabled = true
+script = ExtResource("1_63xl0")
+game_ui = NodePath("GameUi")
+game_over_ui_template = ExtResource("27_s5cs5")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true

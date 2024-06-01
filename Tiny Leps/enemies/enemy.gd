@@ -41,8 +41,12 @@ func die():
 		var death_object = death_prefab.instantiate()
 		death_object.position = position
 		get_parent().add_child(death_object)
+	
 	if randf() <= drop_chance:
 		drop_item()	
+	
+	GameManager.monsters_defeated_counter += 1
+	
 	queue_free()
 
 func drop_item():
@@ -56,7 +60,7 @@ func get_radom_drop_item() -> PackedScene:
 		
 	# Calculate the max chance
 	var max_change: float = 0.0
-	for drop_chance in drop_chance:
+	for drop_chance in drop_chances:
 		max_change += drop_chance
 	
 	#Play a dice
@@ -70,5 +74,4 @@ func get_radom_drop_item() -> PackedScene:
 		if random_value <= drop_chance + needle:
 			return drop_item
 		needle += drop_chance
-		
 	return drop_items[0]
