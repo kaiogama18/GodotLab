@@ -48,7 +48,7 @@ label_settings = SubResource("LabelSettings_inxki")
 autowrap_mode = 2
 
 [node name="Player" parent="." instance=ExtResource("2_otoxm")]
-position = Vector2(63, 638)
+position = Vector2(597, 315)
 
 [node name="Pawn" parent="." instance=ExtResource("3_m04lf")]
 position = Vector2(198, 536)
@@ -60,4 +60,4 @@ position = Vector2(1036, 134)
 position = Vector2(172, 164)
 
 [node name="Meat" parent="." instance=ExtResource("6_yiorq")]
-position = Vector2(940, 537)
+position = Vector2(942, 537)

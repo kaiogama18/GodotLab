@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cdiek4lw4fq0w"]
+[gd_scene load_steps=20 format=3 uid="uid://cdiek4lw4fq0w"]
 
 [ext_resource type="Texture2D" uid="uid://lkqdf6aocq4y" path="res://addons/Tiny Swords/Factions/Knights/Troops/Warrior/Yellow/Warrior_Yellow.png" id="1_hgygb"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_jjxjd"]
@@ -7,7 +7,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n17bw"]
 radius = 18.0
-height = 63.7
+height = 46.0
 
 [sub_resource type="Animation" id="Animation_ek846"]
 length = 0.001
@@ -269,12 +269,16 @@ radius = 110.005
 [sub_resource type="CircleShape2D" id="CircleShape2D_aiyci"]
 radius = 53.0848
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eaa13"]
+bg_color = Color(0.0807833, 0.0807834, 0.0807833, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6kek"]
+bg_color = Color(1, 0.334845, 0.34204, 1)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-z_index = 3
 motion_mode = 1
 script = ExtResource("1_jjxjd")
 ritual_scene = ExtResource("2_xn2yw")
-health = 10
 death_prefab = ExtResource("2_0yc6b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -285,7 +289,7 @@ vframes = 8
 frame = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -32)
+position = Vector2(0, -24)
 shape = SubResource("CapsuleShape2D_n17bw")
 debug_color = Color(0, 0.6, 0.701961, 0)
 
@@ -308,3 +312,12 @@ debug_color = Color(0, 0.648438, 0.19068, 0)
 position = Vector2(0, -40)
 shape = SubResource("CircleShape2D_aiyci")
 debug_color = Color(0.989854, 0, 0.291028, 0)
+
+[node name="HealthProgressBar" type="ProgressBar" parent="."]
+offset_left = -41.0
+offset_top = 11.0
+offset_right = 45.0
+offset_bottom = 24.0
+theme_override_styles/background = SubResource("StyleBoxFlat_eaa13")
+theme_override_styles/fill = SubResource("StyleBoxFlat_w6kek")
+show_percentage = false

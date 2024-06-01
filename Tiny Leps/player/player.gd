@@ -14,7 +14,7 @@ extends CharacterBody2D
 @export var ritual_scene: PackedScene
 
 @export_category("Life")
-@export var health: int =  50
+@export var health: int =  100
 @export var max_health: int =  100
 @export var death_prefab: PackedScene
 
@@ -22,6 +22,7 @@ extends CharacterBody2D
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var sword_area = $SwordArea
 @onready var hitbox_area = $HitboxArea
+@onready var health_progress_bar = $HealthProgressBar
 
 var input_vector: Vector2 = Vector2(0,0)
 var is_running: bool = false
@@ -30,6 +31,8 @@ var is_attacking: bool = false
 var attack_cooldown: float = 0.0
 var hitbox_cooldown: float = 0.0
 var ritual_cooldown: float = 0.0
+
+signal meat_collected(value: int)
 
 func _process(delta):
 	GameManager.player_position = position
@@ -45,6 +48,12 @@ func _process(delta):
 	
 	update_hitbox_detection(delta)
 	update_ritual(delta)
+	
+	health_progress_bar.max_value = max_health
+	health_progress_bar.value = health
+
+func _ready():
+	GameManager.player = self
 
 func _physics_process(delta):	
 	# Modify the speed
