@@ -278,6 +278,9 @@ bg_color = Color(1, 0.334845, 0.34204, 1)
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_jjxjd")
+sword_damage = 2
+ritual_damage = 5
+ritual_interval = 20.0
 ritual_scene = ExtResource("2_xn2yw")
 death_prefab = ExtResource("2_0yc6b")
 
