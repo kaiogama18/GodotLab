@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 @onready var timer_label = %TimerLabel
-@onready var gold_label = %GoldLabel
 @onready var meat_label = %MeatLabel
 
 func _process(delta):

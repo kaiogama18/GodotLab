@@ -1,10 +1,9 @@
-[gd_scene load_steps=52 format=3 uid="uid://301s6tppiox4"]
+[gd_scene load_steps=51 format=3 uid="uid://301s6tppiox4"]
 
 [ext_resource type="PackedScene" uid="uid://cdiek4lw4fq0w" path="res://player/player.tscn" id="1_48hul"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_63xl0"]
 [ext_resource type="PackedScene" uid="uid://b2d0awtyo0ju5" path="res://systems/mob_spawner.tscn" id="2_2r4p1"]
 [ext_resource type="PackedScene" uid="uid://cu0wuwrfnfmys" path="res://ui/game_ui.tscn" id="3_ppvtk"]
-[ext_resource type="PackedScene" uid="uid://b63e8tdij843v" path="res://misc/meat.tscn" id="4_dysis"]
 [ext_resource type="Texture2D" uid="uid://ldr7ux3qc4ni" path="res://addons/Tiny Swords/Terrain/Ground/Tilemap_Flat.png" id="5_c7l7u"]
 [ext_resource type="Texture2D" uid="uid://bxcoexwqdg3gh" path="res://addons/Tiny Swords/Deco/01.png" id="6_2nmpf"]
 [ext_resource type="Texture2D" uid="uid://ctmtqqrnqfuxf" path="res://addons/Tiny Swords/Deco/10.png" id="7_n01in"]
@@ -262,20 +261,6 @@ mob_spawner = NodePath("../MobSpawner")
 position = Vector2(621, 368)
 
 [node name="GameUi" parent="." instance=ExtResource("3_ppvtk")]
-
-[node name="Meat Collection" type="Node" parent="."]
-
-[node name="Meat" parent="Meat Collection" instance=ExtResource("4_dysis")]
-position = Vector2(918, 539)
-
-[node name="Meat2" parent="Meat Collection" instance=ExtResource("4_dysis")]
-position = Vector2(106, 95)
-
-[node name="Meat3" parent="Meat Collection" instance=ExtResource("4_dysis")]
-position = Vector2(198, 563)
-
-[node name="Meat4" parent="Meat Collection" instance=ExtResource("4_dysis")]
-position = Vector2(1076, 197)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(621, 368)
